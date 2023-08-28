@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+
 import {
   Container,
   Button,
   Grid,
   Typography,
-  TextField
 } from '@material-ui/core';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -101,94 +101,113 @@ function App() {
       )}
       <Grid container direction="column" spacing={2} alignItems="center">
         <Grid item>
-          <Typography variant="h4" component="h1" align="center">
-            Vpet存档编辑器
-          </Typography>
+          <Grid item>
+            <Typography variant="h4" component="h1" align="center">
+              Vpet存档编辑器
+            </Typography>
+          </Grid>
+          <Grid container direction="row" spacing={2} alignItems='center'>
+            <Grid item>
+              <Grid container direction="column" spacing={2} alignItems="center">
+
+                <Grid item>
+                  <input
+                    accept=".lps"
+                    type="file"
+                    style={{ display: 'none' }}
+                    id="select-file"
+                    onChange={handleSelectFile}
+                  />
+                </Grid>
+                <FieldInput
+                  label="名字"
+                  value={parsedSaveData.name}
+                  onChange={(event) => handleFieldChange(event, 'name')}
+                />
+                <FieldInput
+                  label="金币"
+                  value={parsedSaveData.money}
+                  onChange={(event) => handleFieldChange(event, 'money')}
+                />
+                <FieldInput
+                  label="经验"
+                  value={parsedSaveData.exp}
+                  onChange={(event) => handleFieldChange(event, 'exp')}
+                />
+                <FieldInput
+                  label="体力"
+                  value={parsedSaveData.strength}
+                  onChange={(event) => handleFieldChange(event, 'strength')}
+                />
+                <FieldInput
+                  label="商店体力"
+                  value={parsedSaveData.StoreStrength}
+                  onChange={(event) => handleFieldChange(event, 'StoreStrength')}
+                />
+                <FieldInput
+                  label="体力食物"
+                  value={parsedSaveData.strengthFood}
+                  onChange={(event) => handleFieldChange(event, 'strengthFood')}
+                />
+                <FieldInput
+                  label="商店体力食物"
+                  value={parsedSaveData.StoreStrengthFood}
+                  onChange={(event) => handleFieldChange(event, 'StoreStrengthFood')}
+                />
+                <FieldInput
+                  label="体力饮料"
+                  value={parsedSaveData.strengthDrink}
+                  onChange={(event) => handleFieldChange(event, 'strengthDrink')}
+                />
+
+              </Grid>
+            </Grid>
+            <Grid item>
+              <Grid container direction="column" spacing={2} alignItems="center">
+
+                <FieldInput
+                  label="商店体力饮料"
+                  value={parsedSaveData.StoreStrengthDrink}
+                  onChange={(event) => handleFieldChange(event, 'StoreStrengthDrink')}
+                />
+                <FieldInput
+                  label="情绪值"
+                  value={parsedSaveData.feeling}
+                  onChange={(event) => handleFieldChange(event, 'feeling')}
+                />
+                <FieldInput
+                  label="商店情绪值"
+                  value={parsedSaveData.StoreFeeling}
+                  onChange={(event) => handleFieldChange(event, 'StoreFeeling')}
+                />
+                <FieldInput
+                  label="健康值"
+                  value={parsedSaveData.health}
+                  onChange={(event) => handleFieldChange(event, 'health')}
+                />
+                <FieldInput
+                  label="好感度"
+                  value={parsedSaveData.likability}
+                  onChange={(event) => handleFieldChange(event, 'likability')}
+                />
+                <FieldInput
+                  label="模式"
+                  value={parsedSaveData.mode}
+                  onChange={(event) => handleFieldChange(event, 'mode')}
+                />
+                <FieldInput
+                  label="哈希"
+                  value={parsedSaveData.hash}
+                  onChange={(event) => handleFieldChange(event, 'hash')}
+                />
+                <Typography color="error">
+                  不建议修改此字段
+                </Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+
         </Grid>
-        <Grid item>
-          <input
-            accept=".lps"
-            type="file"
-            style={{ display: 'none' }}
-            id="select-file"
-            onChange={handleSelectFile}
-          />
-        </Grid>
-        <FieldInput
-          label="名字"
-          value={parsedSaveData.name}
-          onChange={(event) => handleFieldChange(event, 'name')}
-        />
-        <FieldInput
-          label="金币"
-          value={parsedSaveData.money}
-          onChange={(event) => handleFieldChange(event, 'money')}
-        />
-        <FieldInput
-          label="经验"
-          value={parsedSaveData.exp}
-          onChange={(event) => handleFieldChange(event, 'exp')}
-        />
-        <FieldInput
-          label="体力"
-          value={parsedSaveData.strength}
-          onChange={(event) => handleFieldChange(event, 'strength')}
-        />
-        <FieldInput
-          label="商店体力"
-          value={parsedSaveData.StoreStrength}
-          onChange={(event) => handleFieldChange(event, 'StoreStrength')}
-        />
-        <FieldInput
-          label="体力食物"
-          value={parsedSaveData.strengthFood}
-          onChange={(event) => handleFieldChange(event, 'strengthFood')}
-        />
-        <FieldInput
-          label="商店体力食物"
-          value={parsedSaveData.StoreStrengthFood}
-          onChange={(event) => handleFieldChange(event, 'StoreStrengthFood')}
-        />
-        <FieldInput
-          label="体力饮料"
-          value={parsedSaveData.strengthDrink}
-          onChange={(event) => handleFieldChange(event, 'strengthDrink')}
-        />
-        <FieldInput
-          label="商店体力饮料"
-          value={parsedSaveData.StoreStrengthDrink}
-          onChange={(event) => handleFieldChange(event, 'StoreStrengthDrink')}
-        />
-        <FieldInput
-          label="情绪值"
-          value={parsedSaveData.feeling}
-          onChange={(event) => handleFieldChange(event, 'feeling')}
-        />
-        <FieldInput
-          label="商店情绪值"
-          value={parsedSaveData.StoreFeeling}
-          onChange={(event) => handleFieldChange(event, 'StoreFeeling')}
-        />
-        <FieldInput
-          label="健康值"
-          value={parsedSaveData.health}
-          onChange={(event) => handleFieldChange(event, 'health')}
-        />
-        <FieldInput
-          label="好感度"
-          value={parsedSaveData.likability}
-          onChange={(event) => handleFieldChange(event, 'likability')}
-        />
-        <FieldInput
-          label="模式"
-          value={parsedSaveData.mode}
-          onChange={(event) => handleFieldChange(event, 'mode')}
-        />
-        <FieldInput
-          label="哈希"
-          value={parsedSaveData.hash}
-          onChange={(event) => handleFieldChange(event, 'hash')}
-        />
         <Grid item>
           <label htmlFor="select-file">
             <Button
@@ -211,9 +230,13 @@ function App() {
             保存存档
           </Button>
         </Grid>
+        <Grid item>
+          <a href='https://github.com/Maswdle/VpetSaveEditor' rel='noreferrer'>
+            在Github查看源码
+          </a>
+        </Grid>
       </Grid>
-    </Container>
-
+    </Container >
   );
 }
 
